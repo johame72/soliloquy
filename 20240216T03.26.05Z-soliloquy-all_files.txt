@@ -1,0 +1,123 @@
+Filename: 20240216T03.26.05Z-soliloquy
+Generated on: 2024-02-15 21:26:05
+Total Characters: 1792
+
+
+--- \soliloquy\routes\posts.js ---
+
+
+import express from 'express';
+
+const router = express.Router();
+
+// create a new post
+router.post('/', (req, res) => {
+    res.send(`You requested ${req.url} using the ${req.method} method`);
+});
+
+// get all posts
+router.get('/', (req, res) => {
+    res.send(`You requested ${req.url} using the ${req.method} method`);
+});
+
+// get a single post
+router.get('/:id', (req, res) => {
+    res.send(`You requested ${req.url} using the ${req.method} method`);
+});
+
+// update a post
+router.put('/:id', (req, res) => {
+    res.send(`You requested ${req.url} using the ${req.method} method`);
+});
+
+// delete a post
+router.delete('/:id', (req, res) => {
+    res.send(`You requested ${req.url} using the ${req.method} method`);
+});
+
+export default router;
+
+
+
+
+--- \soliloquy\routes\user.js ---
+
+
+import express from 'express';
+
+const router = express.Router();
+
+// create a new user
+router.post('/signup', (req, res) => {
+    res.send(`You requested ${req.url} using the ${req.method} method`);
+});
+
+// login a user
+router.post('/login', (req, res) => {
+    res.send(`You requested ${req.url} using the ${req.method} method`);
+});
+
+export default router;
+
+
+
+
+
+--- \soliloquy\20240215T212535_tree.txt ---
+
+
+soliloquy
++--- api
+|   +--- posts.http
+|   +--- user.http
++--- node_modules
++--- routes
+    \--- posts.js
+    \--- user.js
++--- .env
++--- .gitignore
++--- app.js
++--- package-lock.json
++--- package.json
++--- server.js
+
+
+
+
+
+--- \soliloquy\app.js ---
+
+
+import express from 'express';
+import postsRoutes from './routes/posts.js';
+import userRoutes from './routes/user.js';
+
+const app = express();
+
+app.use(express.json());
+
+app.use('/posts', postsRoutes);
+app.use('/user', userRoutes);
+
+export default app;
+
+
+
+
+
+--- \soliloquy\server.js ---
+
+
+import dotenv from 'dotenv';
+dotenv.config();
+
+import APP from './app.js';
+
+const PORT = process.env.server_port || 3000;
+APP.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+
+
+

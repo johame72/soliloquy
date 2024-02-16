@@ -1,0 +1,14 @@
+soliloquy
++--- api
+|   +--- posts.http
+|   +--- user.http
++--- node_modules
++--- routes
+    \--- posts.js
+    \--- user.js
++--- .env
++--- .gitignore
++--- app.js
++--- package-lock.json
++--- package.json
++--- server.js
